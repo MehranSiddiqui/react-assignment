@@ -1,38 +1,95 @@
-.App {
+body {
+  font-family: "Sora", sans-serif;
   text-align: center;
+  margin: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(51, 44, 44);
+  color: white;
+  transition: 0.6s;
+  height: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dark .text-field {
+  background-color: #fff;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dark .button-theme {
+  background-color: #fff;
+}
+.light {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: rgb(124, 113, 113);
+  transition: 0.6s;
+}
+.data-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 30rem;
+  padding: 0 1rem;
+}
+.landing {
+  height: 100vh;
+}
+.landing-div {
+  padding-top: 10rem;
+}
+.message {
+  color: red;
+}
+.links {
+  text-decoration: none;
+}
+.auths {
+  border-top: 1px solid lightgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30rem;
+  width: 30rem;
+  padding: 0 1rem;
+  margin: 1rem;
+}
+.upload {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30rem;
+}
+.dash-Profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-self: baseline;
+  border-right: 1px solid lightgrey;
+  padding-right: 1rem;
+}
+.dash-Avatar {
+  margin: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.imageHolder {
+  margin-top: 2rem;
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.imageList {
+  width: 15rem;
+  height: 15rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
 }
