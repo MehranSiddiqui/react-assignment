@@ -8,14 +8,18 @@ const Dash = () => {
   const { email } = auth.currentUser;
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
+  
+  
+
+    useEffect(() => {
     const fetchUser = async () => {
       try {
         //collection reference
         const userRef = collection(db, "users");
         //query reference
         const getQuery = query(userRef, where("email", "==", email));
-        //get docs
+        //get snapshot of the query 
+        //snapShot is the copy of documents
         const querySnap = await getDocs(getQuery);
         //set users
         const users = [];

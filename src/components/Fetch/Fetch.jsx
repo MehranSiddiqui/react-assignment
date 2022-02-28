@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 
 const Fetch = () => {
   const [fetchedData, setFetchedData] = useState([]);
+  //fetching Data From API using axios
   const getData = () => {
     axios.get("https://picsum.photos/v2/list").then((response) => {
       setFetchedData(response.data);

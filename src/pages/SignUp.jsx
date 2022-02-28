@@ -64,12 +64,14 @@ const Signup = () => {
 
     //awaits the promise to store the image url
     const imageUrls = await Promise.all(
+      //loops through the images array
       [...images].map((image) => storeImage(image))
     ).catch((err) => {
       console.log(err);
       return;
     });
     try {
+      //FireBase provides with the method of creating a user with email and password
       //creates a new user with the email and password
       const auth = getAuth();
 
@@ -82,6 +84,9 @@ const Signup = () => {
       const user = userCredentials.user;
       //creates a copy of the form data and removes the images property
       const fromDataCopy = { ...formData, imageUrls };
+      //we are not going to store the state of images and password in the database
+      //we are going to store the image url in the database
+      //so we delete the images and password from the form data Copy and store it in the database
       delete fromDataCopy.images;
       delete fromDataCopy.password;
       //sets the user document in the users collection and adds the form data

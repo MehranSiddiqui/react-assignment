@@ -21,6 +21,9 @@ const Login = () => {
       }),
   
       onSubmit: async (values) => {
+        //Firebase provides with a method of signInWithEmailAndPassword
+        //which takes auth value, email and password as arguments
+
         try {
           const { email, password } = values;
           const auth = getAuth();
@@ -29,12 +32,13 @@ const Login = () => {
             email,
             password
           );
+          //if user is successfully logged in, navigate to /
           if(userCredentials.user){
             alert('Success');
             navigateTo('/');
           }
         } catch (error) {
-          console.log(error);
+         alert('Bad Credentials')
         }
       },
     });

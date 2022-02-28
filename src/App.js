@@ -16,6 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Landing />} />
+          {/* Private Routes in React Router Dom V6*/ }
           <Route path='/dash' element={<PrivateRoute />}>
             <Route path='/dash' element={<Dash />} />
           </Route>
