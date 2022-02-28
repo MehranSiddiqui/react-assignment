@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useContext } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Signup from "./pages/SignUp";
+import Header from "./components/Common/Header/Header";
+import ThemeContext from "./context/ThemeContext";
+import Landing from "./pages/Landing";
+import PrivateRoute from "./components/Private/PrivateRoute";
+import Dash from "./pages/Dash";
 function App() {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={theme}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          {/* Private Routes in React Router Dom V6*/ }
+          <Route path='/dash' element={<PrivateRoute />}>
+            <Route path='/dash' element={<Dash />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
